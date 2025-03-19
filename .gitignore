@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Virtualenv
+.env
+.env.local
+.DS_Store
+
+# MongoDB
+/data/db
+
+# Node.js (frontend)
+frontend/.next
+frontend/node_modules/
+
+# Others
+generate-structure.js
+project-structure.md
