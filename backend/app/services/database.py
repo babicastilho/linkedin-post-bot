@@ -2,14 +2,17 @@ import os
 from dotenv import load_dotenv
 from motor.motor_asyncio import AsyncIOMotorClient
 
-# Load environment variables
+# Load .env for local dev (ignored in CI/CD)
 load_dotenv()
 
 MONGO_URI = os.getenv("MONGODB_URI")
 
-# Connect to MongoDB Atlas
+if not MONGO_URI:
+    raise ValueError("MONGODB_URI is not set in environment variables.")
+
+# Connect to MongoDB
 client = AsyncIOMotorClient(MONGO_URI)
-db = client["linkedin_post_bot"]  # Database name
+db = client.get_default_database()  # Use DB from URI
 
 # Define collections
 users_collection = db["users"]
