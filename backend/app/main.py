@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from app.api.auth import router as auth_router
-from app.api.posts import router as posts_router  # Import the new posts API
+from app.routers.auth import router as auth_router
+from app.routers.posts import router as posts_router  # Import the new posts API
 
 app = FastAPI()
 
